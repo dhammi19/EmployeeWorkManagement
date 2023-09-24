@@ -42,4 +42,57 @@ public class UsersRepository {
 
         return list;
     }
+
+    public UsersModel getEmailAndFullNameOfUser(int id) {
+        UsersModel user = new UsersModel();
+
+        try {
+            String query = "select * from users where id = ?";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                user.setId(resultSet.getInt("id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setFullName(resultSet.getString("fullname"));
+                user.setAvatar(resultSet.getString("avatar"));
+                user.setRoleId(resultSet.getInt("role_id"));
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getEmailAndFullNameOfUser(): "+e.getMessage());
+        }
+
+        return user;
+    }
+
+    public int getIdByUserEmail(String email) {
+        int id = 0;
+        try {
+            String query = "select * from users where email = ?";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                id = resultSet.getInt("id");
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getEmailAndFullNameOfUser(): "+e.getMessage());
+        }
+
+        return id;
+    }
 }

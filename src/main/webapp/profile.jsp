@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,10 +73,10 @@
                                 <b class="hidden-xs">Cybersoft</b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="profile.html">Thông tin cá nhân</a></li>
+                                <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
                                 <li><a href="#">Thống kê công việc</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Đăng xuất</a></li>
+                                <li><a href="/EmployeeWorkManagement/logout">Đăng xuất</a></li>
                             </ul>
                         </div>
                     </li>
@@ -136,8 +140,8 @@
                                     <div class="user-content">
                                         <a href="javascript:void(0)"><img src="plugins/images/users/genu.jpg"
                                                 class="thumb-lg img-circle" alt="img"></a>
-                                        <h4 class="text-white">Nguyễn Văn Tèo</h4>
-                                        <h5 class="text-white">info.teo@gmail.com</h5>
+                                        <h4 class="text-white">${showEmailAndFullName.getFullName()}</h4>
+                                        <h5 class="text-white">${showEmailAndFullName.getEmail()}</h5>
                                     </div>
                                 </div>
                             </div>

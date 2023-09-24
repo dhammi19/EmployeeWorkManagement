@@ -9,7 +9,7 @@ public class MysqlConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3307/crm_app",
+                    "jdbc:mysql://localhost:3307/EmployeeWorkManagement",
                     "root",
                     "admin123");
         }

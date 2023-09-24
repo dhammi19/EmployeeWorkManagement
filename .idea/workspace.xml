@@ -5,29 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a7bd32-bb0a-43d1-83ae-8793da390753" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/model/RoleModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/CustomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/CustomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/MysqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/MysqlConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/role-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/role-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/role-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-table.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/task-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/user-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/user-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/config/CustomFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/config/CustomFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/config/MysqlConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/config/MysqlConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/HomePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/repository/UsersRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/repository/UsersRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/service/LoginService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,14 +85,30 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServletServer" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="contextPath" value="/EmployeeWorkManagement" />
+      <option name="contextPath" value="/EmployeeWorkManagement/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="port" value="8081" />
       <option name="tomcatInfo">
         <TomcatInfo>
@@ -114,7 +136,7 @@
       <workItem from="1695364646549" duration="6919000" />
       <workItem from="1695438262161" duration="6367000" />
       <workItem from="1695476916095" duration="7925000" />
-      <workItem from="1695525633284" duration="388000" />
+      <workItem from="1695525633284" duration="15045000" />
     </task>
     <servers />
   </component>
