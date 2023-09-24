@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +99,7 @@
                                 aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                     </li>
                     <li>
-                        <a href="role-table.html" class="waves-effect"><i class="fa fa-modx fa-fw"
+                        <a href="role-table.jsp" class="waves-effect"><i class="fa fa-modx fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
@@ -145,24 +149,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>ROLE_ADMIN</td>
-                                            <td>Quản trị hệ thống</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>ROLE_USER</td>
-                                            <td>Nhân viên</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach items="${roles}" var="role">
+                                            <tr>
+                                                <td id="role_id">${role.getId()}</td>
+                                                <td>${role.getName()}</td>
+                                                <td>${role.getDescription()}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary btn-update">Sửa</a>
+                                                    <a href="#" roleId="${role.getId()}" class="btn btn-sm btn-danger btn-delete">Xóa</a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -190,6 +187,7 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/role.js"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();

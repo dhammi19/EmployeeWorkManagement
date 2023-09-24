@@ -39,6 +39,6 @@ public class LoginPage extends HttpServlet {
 
         System.out.println("Kiếm tra login: "+isLogin);
 
-        req.getRequestDispatcher("/webapp/login.html").forward(req, resp);
+        req.getRequestDispatcher("/login.html").forward(req, resp);
     }
 }

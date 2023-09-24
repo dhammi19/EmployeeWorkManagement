@@ -5,8 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a7bd32-bb0a-43d1-83ae-8793da390753" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/model/RoleModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/CustomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/CustomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/role-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/role-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-table.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/config/CustomFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/config/CustomFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/HomePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/LoginPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +43,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -51,17 +79,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ServletServer" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
@@ -69,7 +86,7 @@
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="contextPath" value="/EmployeeWorkManagement" />
-      <option name="docBase" value="$PROJECT_DIR$/src/main" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="port" value="8081" />
       <option name="tomcatInfo">
         <TomcatInfo>
@@ -94,7 +111,10 @@
       <updated>1695282479803</updated>
       <workItem from="1695282482418" duration="9008000" />
       <workItem from="1695308388869" duration="4474000" />
-      <workItem from="1695364646549" duration="6364000" />
+      <workItem from="1695364646549" duration="6919000" />
+      <workItem from="1695438262161" duration="6367000" />
+      <workItem from="1695476916095" duration="7925000" />
+      <workItem from="1695525633284" duration="388000" />
     </task>
     <servers />
   </component>

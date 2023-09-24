@@ -21,32 +21,35 @@ public class CustomFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
+        request.setCharacterEncoding("UTF-8");
+
         HttpSession session = request.getSession();
-        if (session.getAttribute("isLogin")!= null && !session.getAttribute("isLogin").equals("")) {
-            boolean isLogin = (boolean) session.getAttribute("isLogin");
+//        if (session.getAttribute("isLogin")!= null && !session.getAttribute("isLogin").equals("")) {
+//            boolean isLogin = (boolean) session.getAttribute("isLogin");
 
-            if (isLogin) {
-                // chuyển về page chỉ định
-                if (request.getServletPath().equals("/login")) {
-                    // nếu là trang login
-                    response.sendRedirect(request.getContextPath()+"/home");
-                } else {
-                    filterChain.doFilter(request, response);
-                }
-            } else {
-                // chuyển về page login
-                response.sendRedirect(request.getContextPath()+"/login");
-            }
-        } else {
-            // chuyển về page login
-            System.out.println("Kiếm tra path "+request.getServletPath());
-            if (request.getServletPath().equals("/login")) {
+//            if (isLogin) {
+//                // chuyển về page chỉ định
+//                if (request.getServletPath().equals("/login")) {
+//                    // nếu là trang login
+//                    response.sendRedirect(request.getContextPath()+"/home");
+//                } else {
+//                    filterChain.doFilter(request, response);
+//                }
+//            } else {
+//                // chuyển về page login
+//                response.sendRedirect(request.getContextPath()+"/login");
+//            }
+//        } else {
+//            // chưa login
+//            // chuyển về page login
+//            // System.out.println("Kiếm tra path "+request.getServletPath());
+//            if (request.getServletPath().equals("/login")) {
                 filterChain.doFilter(request, response);
-            } else {
-                response.sendRedirect(request.getContextPath()+"/login");
-            }
-
-        }
+//            } else {
+//                response.sendRedirect(request.getContextPath()+"/login");
+//            }
+//
+//        }
 
 //        filterChain.doFilter(servletRequest, servletResponse); // Cho phép đi vào link mong muốn
     }
