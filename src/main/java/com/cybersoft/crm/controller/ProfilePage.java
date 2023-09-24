@@ -1,7 +1,6 @@
 package com.cybersoft.crm.controller;
 
 import com.cybersoft.crm.service.UserService;
-import com.mysql.cj.Session;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +21,9 @@ public class ProfilePage extends HttpServlet {
         int id = (int) session.getAttribute("id");
 
         req.setAttribute("showEmailAndFullName", userService.getEmailAndFullNameOfUserService(id));
+        req.setAttribute("unstartedTaskPercentage", userService.getUnstartedTaskPercentage(id));
+        req.setAttribute("processingTaskPercentage", userService.getProcessingTaskPercentage(id));
+        req.setAttribute("completedTaskPercentage", userService.getCompletedTaskPercentage(id));
         req.getRequestDispatcher("/profile.jsp").forward(req, resp);
     }
 }

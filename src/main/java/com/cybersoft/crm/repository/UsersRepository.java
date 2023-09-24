@@ -3,6 +3,8 @@ package com.cybersoft.crm.repository;
 import com.cybersoft.crm.config.MysqlConnection;
 import com.cybersoft.crm.model.UsersModel;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -90,9 +92,126 @@ public class UsersRepository {
 
             connection.close();
         } catch (Exception e) {
-            System.out.println("Error at getEmailAndFullNameOfUser(): "+e.getMessage());
+            System.out.println("Error at getIdByUserEmail(): "+e.getMessage());
         }
 
         return id;
+    }
+
+    public double getUnstartedTaskPercentage(int id) {
+        double unstartedTaskPercentage = 0;
+        double roundedPercentage = 0;
+        try {
+            String query = "SELECT (t1.task_count / t2.total_count)*100 AS task_ratio\n" +
+                    "FROM (\n" +
+                    "    SELECT COUNT(*) AS task_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ? AND status_id = 1\n" +
+                    ") AS t1,\n" +
+                    "(\n" +
+                    "    SELECT COUNT(*) AS total_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ?\n" +
+                    ") AS t2";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                unstartedTaskPercentage = resultSet.getDouble("task_ratio");
+                BigDecimal bd = new BigDecimal(unstartedTaskPercentage);
+                bd = bd.setScale(2, RoundingMode.HALF_UP); // Làm tròn và giữ lại 2 số thập phân
+                roundedPercentage = bd.doubleValue();
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getUnstartedTaskPercentage(): "+e.getMessage());
+        }
+
+        return roundedPercentage;
+    }
+
+    public double getProcessingTaskPercentage(int id) {
+        double processingTaskPercentage = 0;
+        double roundedPercentage = 0;
+        try {
+            String query = "SELECT (t1.task_count / t2.total_count)*100 AS task_ratio\n" +
+                    "FROM (\n" +
+                    "    SELECT COUNT(*) AS task_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ? AND status_id = 2\n" +
+                    ") AS t1,\n" +
+                    "(\n" +
+                    "    SELECT COUNT(*) AS total_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ?\n" +
+                    ") AS t2";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                processingTaskPercentage = resultSet.getDouble("task_ratio");
+                BigDecimal bd = new BigDecimal(processingTaskPercentage);
+                bd = bd.setScale(2, RoundingMode.HALF_UP); // Làm tròn và giữ lại 2 số thập phân
+                roundedPercentage = bd.doubleValue();
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getProcessingTaskPercentage(): "+e.getMessage());
+        }
+
+        return roundedPercentage;
+    }
+
+    public double getCompletedTaskPercentage(int id) {
+        double completedTaskPercentage = 0;
+        double roundedPercentage = 0;
+        try {
+            String query = "SELECT (t1.task_count / t2.total_count)*100 AS task_ratio\n" +
+                    "FROM (\n" +
+                    "    SELECT COUNT(*) AS task_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ? AND status_id = 3\n" +
+                    ") AS t1,\n" +
+                    "(\n" +
+                    "    SELECT COUNT(*) AS total_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ?\n" +
+                    ") AS t2";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                completedTaskPercentage = resultSet.getDouble("task_ratio");
+                BigDecimal bd = new BigDecimal(completedTaskPercentage);
+                bd = bd.setScale(2, RoundingMode.HALF_UP); // Làm tròn và giữ lại 2 số thập phân
+                roundedPercentage = bd.doubleValue();
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getCompletedTaskPercentage(): "+e.getMessage());
+        }
+
+        return roundedPercentage;
     }
 }

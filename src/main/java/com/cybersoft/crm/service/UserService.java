@@ -29,4 +29,16 @@ public class UserService {
     public int getIdByUserEmail(String email) {
         return usersRepository.getIdByUserEmail(email);
     }
+
+    public double getUnstartedTaskPercentage(int id) {
+        return usersRepository.getUnstartedTaskPercentage(id);
+    }
+
+    public double getProcessingTaskPercentage(int id) {
+        return usersRepository.getProcessingTaskPercentage(id);
+    }
+
+    public double getCompletedTaskPercentage(int id) {
+        return usersRepository.getCompletedTaskPercentage(id);
+    }
 }
