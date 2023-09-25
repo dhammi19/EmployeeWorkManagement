@@ -52,7 +52,7 @@ public class LoginPage extends HttpServlet {
 
         int id = userService.getIdByUserEmail(email);
 
-        System.out.println(id);
+        // System.out.println(id);
 
         if (isLogin) {
             HttpSession httpSession = req.getSession(); // Yêu cầu sử dụng session

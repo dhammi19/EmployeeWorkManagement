@@ -166,7 +166,7 @@
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-danger" role="progressbar"
                                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 20%"></div>
+                                                    style="width: ${unstartedTaskPercentage}%"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-megna" role="progressbar"
                                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 50%"></div>
+                                                    style="width: ${processingTaskPercentage}%"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-primary" role="progressbar"
                                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: 30%"></div>
+                                                    style="width: ${completedTaskPercentage}%"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -242,28 +242,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Phân tích dự án</td>
-                                            <td>Dự án CRM</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>Đã hoàn thành</td>
-                                            <td>
-                                                <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiết kế database</td>
-                                            <td>Dự án CRM</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>Đang thực hiện</td>
-                                            <td>
-                                                <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach items="${taskList}" var = "task">
+                                            <tr>
+                                                <td>${task.getId()}</td>
+                                                <td>${task.getName()}</td>
+                                                <td>${jobName.getJobNameByItsId(task.getJobId())}</td>
+                                                <td>${task.getStartDate()}</td>
+                                                <td>${task.getEndDate()}</td>
+                                                <td>${statusName.getStatusNameByItsId(task.getStatusId())}</td>
+                                                <td>
+                                                    <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+
+<%--                                        <tr>--%>
+<%--                                            <td>1</td>--%>
+<%--                                            <td>Thiết kế database</td>--%>
+<%--                                            <td>Dự án CRM</td>--%>
+<%--                                            <td>22/05/2019</td>--%>
+<%--                                            <td>30/05/2019</td>--%>
+<%--                                            <td>Đang thực hiện</td>--%>
+<%--                                            <td>--%>
+<%--                                                <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>--%>
+<%--                                            </td>--%>
+<%--                                        </tr>--%>
                                     </tbody>
                                 </table>
                             </div>

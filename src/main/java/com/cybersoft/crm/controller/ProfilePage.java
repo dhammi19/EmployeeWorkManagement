@@ -1,5 +1,8 @@
 package com.cybersoft.crm.controller;
 
+import com.cybersoft.crm.service.JobService;
+import com.cybersoft.crm.service.StatusService;
+import com.cybersoft.crm.service.TaskService;
 import com.cybersoft.crm.service.UserService;
 
 import javax.servlet.ServletException;
@@ -14,6 +17,12 @@ import java.io.IOException;
 public class ProfilePage extends HttpServlet {
     UserService userService = new UserService();
 
+    TaskService taskService = new TaskService();
+
+    JobService jobService = new JobService();
+
+    StatusService statusService = new StatusService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -24,6 +33,9 @@ public class ProfilePage extends HttpServlet {
         req.setAttribute("unstartedTaskPercentage", userService.getUnstartedTaskPercentage(id));
         req.setAttribute("processingTaskPercentage", userService.getProcessingTaskPercentage(id));
         req.setAttribute("completedTaskPercentage", userService.getCompletedTaskPercentage(id));
+        req.setAttribute("taskList", taskService.getTasksByUserId(id));
+        req.setAttribute("jobName", jobService);
+        req.setAttribute("statusName", statusService);
         req.getRequestDispatcher("/profile.jsp").forward(req, resp);
     }
 }
