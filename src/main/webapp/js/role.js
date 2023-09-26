@@ -17,6 +17,9 @@ $(document).ready(function (){ // khi page load xong thì hàm này sẽ thực 
             method: "GET",
             url: "http://localhost:8081/EmployeeWorkManagement/api/role?id=" +id,
             // data: { name: "John", location: "Boston" } => Gửi tham số dạng post
+            // method: "POST",
+            // url: "http://localhost:8081/EmployeeWorkManagement/api/role",
+            // data: { id: "id" }
         }).done(function( data ) {
             if(data.success) {
                 // xóa thành công

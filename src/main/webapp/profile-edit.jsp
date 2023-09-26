@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +104,7 @@
                     </li>
                     <li>
                         <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
+                                aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
                         <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -123,7 +127,7 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Thêm mới công việc</h4>
+                        <h4 class="page-title">Cập nhật công việc</h4>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -132,45 +136,46 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Tên dự án</label>
                                     <div class="col-md-12">
-                                        <input type="text" readonly value="Dự án CRM" class="form-control form-control-line">
+                                        <input type="text" readonly value="${jobName.getJobNameByItsId(tasksList.getJobId())}" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Tên công việc</label>
                                     <div class="col-md-12">
-                                        <input type="text" readonly value="Thiết kế database" class="form-control form-control-line">
+                                        <input type="text" readonly value="${tasksList.getName()}" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày bắt đầu</label>
                                     <div class="col-md-12">
-                                        <input type="text" readonly value="05-07/2020" class="form-control form-control-line"> 
+                                        <input type="text" readonly value="${tasksList.getStartDate()}" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày kết thúc</label>
                                     <div class="col-md-12">
-                                        <input type="text" readonly value="17-07/2020" class="form-control form-control-line"> 
+                                        <input type="text" readonly value="${tasksList.getEndDate()}" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Trạng thái</label>
+                                    <label class="col-md-12">Trạng thái </label>
                                     <div class="col-md-12">
-                                        <select class="form-control form-control-line">
-                                            <option>Chưa thực hiện</option>
-                                            <option selected>Đang thực hiện</option>
-                                            <option>Đã hoàn thành</option>
+                                        <select id="statusSelect" class="form-control form-control-line">
+                                            <option selected>${statusName.getStatusNameByItsId(tasksList.getStatusId())}</option>
+                                            <c:forEach items="${statusName.getAllStatusExpectItsId(statusList, tasksList.getStatusId())}" var="status">
+                                                <option value="${status.getId()}">${status.getName()}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">Lưu lại</button>
-                                        <a href="profile.jsp" class="btn btn-primary">Quay lại</a>
+                                        <button type="submit" statusId="${tasksList.getStatusId()}" taskId="${tasksList.getId()}" class="btn btn-success btn-update-task-status">Lưu lại</button>
+                                        <a href="http://localhost:8081/EmployeeWorkManagement/profile" class="btn btn-primary">Quay lại</a>
                                     </div>
                                 </div>
                             </form>
@@ -198,6 +203,7 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/task-status-update.js"></script>
 </body>
 
 </html>

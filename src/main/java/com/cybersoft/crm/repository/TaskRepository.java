@@ -48,4 +48,58 @@ public class TaskRepository {
         return list;
     }
 
+    public TasksModel getTaskByItsId(int id) {
+        TasksModel tasksModel = new TasksModel();
+
+        try {
+            String query = "select * from tasks where id = ?";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                tasksModel.setId(resultSet.getInt("id"));
+                tasksModel.setName(resultSet.getString("name"));
+                tasksModel.setStartDate(resultSet.getDate("start_date"));
+                tasksModel.setEndDate(resultSet.getDate("end_date"));
+                tasksModel.setUserId(resultSet.getInt("user_id"));
+                tasksModel.setJobId(resultSet.getInt("job_id"));
+                tasksModel.setStatusId(resultSet.getInt("status_id"));
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getTaskByItsId(): "+e.getMessage());
+        }
+
+        return tasksModel;
+    }
+
+    public int updateTaskStatusById(int statusId, int id) {
+        int rowsUpdated = 0;
+
+        try {
+            String query = "update tasks set status_id = ? where id = ?";
+
+            Connection connection = MysqlConnection.getConnection(); // Lấy kết nối đến cơ sở dữ liệu
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, statusId); // Thiết lập giá trị cho tham số 1 (status_id)
+            preparedStatement.setInt(2, id); // Thiết lập giá trị cho tham số 2 (id)
+
+            rowsUpdated = preparedStatement.executeUpdate(); // Thực hiện cập nhật và lấy số hàng bị ảnh hưởng
+
+            connection.close(); // Đóng kết nối sau khi hoàn thành
+
+            return rowsUpdated; // Trả về số hàng bị cập nhật
+        } catch (Exception e) {
+            System.out.println("Error at updateTaskStatusById(): "+e.getMessage());
+        }
+
+        return rowsUpdated;
+    }
 }

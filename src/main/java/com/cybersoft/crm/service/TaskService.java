@@ -19,4 +19,22 @@ public class TaskService {
 //        }
         return taskRepository.getTasksByUserId(id);
     }
+
+    public TasksModel getTaskByItsId(int id) {
+        return taskRepository.getTaskByItsId(id);
+    }
+
+    public boolean checkTaskStatusUpdate(int statusId, int id) {
+        boolean isUpdated;
+
+        int result = taskRepository.updateTaskStatusById(statusId, id);
+
+        if(result > 0) {
+            isUpdated = true;
+        } else {
+            isUpdated = false;
+        }
+
+        return isUpdated;
+    }
 }

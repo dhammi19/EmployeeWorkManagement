@@ -232,7 +232,7 @@
                                 <table class="table" id="example">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
+                                            <th>Mã Công Việc</th>
                                             <th>Tên Công Việc</th>
                                             <th>Dự Án</th>
                                             <th>Ngày Bắt Đầu</th>
@@ -251,7 +251,12 @@
                                                 <td>${task.getEndDate()}</td>
                                                 <td>${statusName.getStatusNameByItsId(task.getStatusId())}</td>
                                                 <td>
-                                                    <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>
+                                                    <form action="http://localhost:8081/EmployeeWorkManagement/task-update" method="post">
+                                                        <input type="hidden" name="taskId" value="${task.getId()}" />
+                                                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+<%--                                                        <a name="taskId" href="/EmployeeWorkManagement/task-update" class="btn btn-sm btn-primary">Cập nhật</a>--%>
+                                                    </form>
+<%--                                                    <a name="${task.getId()}" href="/EmployeeWorkManagement/task-update" class="btn btn-sm btn-primary">Cập nhật</a>--%>
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -264,7 +269,7 @@
 <%--                                            <td>30/05/2019</td>--%>
 <%--                                            <td>Đang thực hiện</td>--%>
 <%--                                            <td>--%>
-<%--                                                <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>--%>
+<%--                                                <a href="profile-edit.jsp" class="btn btn-sm btn-primary">Cập nhật</a>--%>
 <%--                                            </td>--%>
 <%--                                        </tr>--%>
                                     </tbody>
