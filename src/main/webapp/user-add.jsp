@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +44,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="top-left-part">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="/EmployeeWorkManagement/home">
                             <b>
                                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                             </b>
@@ -85,15 +89,15 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 10px 0 0;">
-                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="/EmployeeWorkManagement/home" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="user-table.html" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
+                        <a href="/EmployeeWorkManagement/user-table" class="waves-effect"><i class="fa fa-user fa-fw"
+                                                                         aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                     </li>
                     <li>
-                        <a href="role-table.jsp" class="waves-effect"><i class="fa fa-modx fa-fw"
+                        <a href="/EmployeeWorkManagement/role" class="waves-effect"><i class="fa fa-modx fa-fw"
                                                                          aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
@@ -130,48 +134,40 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="" method="post">
                                 <div class="form-group">
-                                    <label class="col-md-12">Full Name</label>
+                                    <label class="col-md-12">Tên Đầy Đủ</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Johnathan Doe"
+                                        <input name="userName" type="text" placeholder="vd: Đào Hồ Anh"
                                             class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" placeholder="johnathan@admin.com"
-                                            class="form-control form-control-line" name="example-email"
+                                        <input name="example-email" type="email" placeholder="vd: daohoanh.work@gmail.com"
+                                            class="form-control form-control-line"
                                             id="example-email"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Password</label>
+                                    <label class="col-md-12">Mật Khẩu</label>
                                     <div class="col-md-12">
-                                        <input type="password" value="password" class="form-control form-control-line">
+                                        <input name="password" type="password" value="" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Phone No</label>
-                                    <div class="col-md-12">
-                                        <input type="text" placeholder="123 456 7890"
-                                            class="form-control form-control-line"> </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-12">Select Country</label>
+                                    <label class="col-sm-12">Quyền</label>
                                     <div class="col-sm-12">
-                                        <select class="form-control form-control-line">
-                                            <option>London</option>
-                                            <option>India</option>
-                                            <option>Usa</option>
-                                            <option>Canada</option>
-                                            <option>Thailand</option>
+                                        <select name="roleId" id="roleIdSelect" class="form-control form-control-line">
+                                            <c:forEach items="${roles.getAllRoles()}" var="role">
+                                                <option value="${role.getId()}">${role.getName()}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">Add User</button>
-                                        <a href="user-table.html" class="btn btn-primary">Quay lại</a>
+                                        <button type="submit" roleId="${role.getId()}" class="btn btn-success btn-add-user">Thêm Thành Viên</button>
+                                        <a href="/EmployeeWorkManagement/user-table" class="btn btn-primary">Quay lại</a>
                                     </div>
                                 </div>
                             </form>
@@ -199,6 +195,7 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/add-user.js"></script>
 </body>
 
 </html>

@@ -37,4 +37,12 @@ public class TaskService {
 
         return isUpdated;
     }
+
+    public int getTotalOfTasksByStatusId(int statusId) {
+        return taskRepository.getTotalOfTasksByStatusId(statusId);
+    }
+
+    public int getAllTasksNumber() {
+        return taskRepository.getAllTasksNumber();
+    }
 }

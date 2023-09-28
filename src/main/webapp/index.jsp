@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +49,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <div class="top-left-part">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="/EmployeeWorkManagement/home">
                         <b>
                             <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                         </b>
@@ -69,7 +73,7 @@
                         <div class="dropdown">
                             <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
                                 <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                <b class="hidden-xs">Cybersoft</b> 
+                                <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -90,15 +94,15 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 10px 0 0;">
-                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="/EmployeeWorkManagement/home" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="user-table.html" class="waves-effect"><i class="fa fa-user fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
+                        <a href="/EmployeeWorkManagement/user-table" class="waves-effect"><i class="fa fa-user fa-fw"
+                                                                         aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                     </li>
                     <li>
-                        <a href="role-table.jsp" class="waves-effect"><i class="fa fa-modx fa-fw"
+                        <a href="/EmployeeWorkManagement/role" class="waves-effect"><i class="fa fa-modx fa-fw"
                                                                          aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
@@ -126,78 +130,101 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">Tất Cả Mọi Người</h4>
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- row -->
             <div class="row">
-                <!--col -->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="white-box">
-                        <div class="col-in row">
-                            <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E"
-                                    class="linea-icon linea-basic"></i>
-                                <h5 class="text-muted vb">CHƯA BẮT ĐẦU</h5>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <h3 class="counter text-right m-t-15 text-danger">23</h3>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span
-                                            class="sr-only">40% Complete (success)</span> </div>
+                <c:forEach items="${statuses.getAllStatus()}" var = "status">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <div class="col-in row">
+                                <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E"
+                                                                            class="linea-icon linea-basic"></i>
+                                    <h5 class="text-muted vb">${status.getName()}</h5>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <h3 class="counter text-right m-t-15 text-danger">${tasks.getTotalOfTasksByStatusId(status.getId())}</h3>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width: ${tasks.getTotalOfTasksByStatusId(status.getId())/tasks.getAllTasksNumber()*100}%"> <span
+                                                class="sr-only">40% Complete (success)</span> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- /.col -->
-                <!--col -->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="white-box">
-                        <div class="col-in row">
-                            <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic"
-                                    data-icon="&#xe01b;"></i>
-                                <h5 class="text-muted vb">ĐANG THỰC HIỆN</h5>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <h3 class="counter text-right m-t-15 text-megna">169</h3>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-megna" role="progressbar" aria-valuenow="40"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span
-                                            class="sr-only">40% Complete (success)</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <!--col -->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="white-box">
-                        <div class="col-in row">
-                            <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic"
-                                    data-icon="&#xe00b;"></i>
-                                <h5 class="text-muted vb">ĐÃ HOÀN THÀNH</h5>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <h3 class="counter text-right m-t-15 text-primary">157</h3>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span
-                                            class="sr-only">40% Complete (success)</span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
+
+<!--                &lt;!&ndash;col &ndash;&gt;-->
+<!--                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">-->
+<!--                    <div class="white-box">-->
+<!--                        <div class="col-in row">-->
+<!--                            <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E"-->
+<!--                                    class="linea-icon linea-basic"></i>-->
+<!--                                <h5 class="text-muted vb">CHƯA BẮT ĐẦU</h5>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-6 col-sm-6 col-xs-6">-->
+<!--                                <h3 class="counter text-right m-t-15 text-danger">23</h3>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-12 col-sm-12 col-xs-12">-->
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40"-->
+<!--                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span-->
+<!--                                            class="sr-only">40% Complete (success)</span> </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /.col &ndash;&gt;-->
+<!--                &lt;!&ndash;col &ndash;&gt;-->
+<!--                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">-->
+<!--                    <div class="white-box">-->
+<!--                        <div class="col-in row">-->
+<!--                            <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic"-->
+<!--                                    data-icon="&#xe01b;"></i>-->
+<!--                                <h5 class="text-muted vb">ĐANG THỰC HIỆN</h5>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-6 col-sm-6 col-xs-6">-->
+<!--                                <h3 class="counter text-right m-t-15 text-megna">169</h3>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-12 col-sm-12 col-xs-12">-->
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar progress-bar-megna" role="progressbar" aria-valuenow="40"-->
+<!--                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span-->
+<!--                                            class="sr-only">40% Complete (success)</span> </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /.col &ndash;&gt;-->
+<!--                &lt;!&ndash;col &ndash;&gt;-->
+<!--                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">-->
+<!--                    <div class="white-box">-->
+<!--                        <div class="col-in row">-->
+<!--                            <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic"-->
+<!--                                    data-icon="&#xe00b;"></i>-->
+<!--                                <h5 class="text-muted vb">ĐÃ HOÀN THÀNH</h5>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-6 col-sm-6 col-xs-6">-->
+<!--                                <h3 class="counter text-right m-t-15 text-primary">157</h3>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-12 col-sm-12 col-xs-12">-->
+<!--                                <div class="progress">-->
+<!--                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40"-->
+<!--                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span-->
+<!--                                            class="sr-only">40% Complete (success)</span> </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- /.col -->
             </div>
             <!-- /.row -->

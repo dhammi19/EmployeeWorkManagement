@@ -41,4 +41,25 @@ public class UserService {
     public double getCompletedTaskPercentage(int id) {
         return usersRepository.getCompletedTaskPercentage(id);
     }
+
+    public String getUserNameByUserId(int id) {
+        return usersRepository.getUserNameByUserId(id);
+    }
+
+    public List<UsersModel> getAllUsers() {
+        return usersRepository.getAllUsers();
+    }
+
+    public boolean checkAddUser(String email, String password, String fullName, int roleId) {
+        boolean result = false;
+        int numberOfRowEffected = usersRepository.addUser(email, password, fullName, roleId);
+
+        if (numberOfRowEffected > 0) {
+            result = true;
+        } else {
+            result = false;
+        }
+
+        return result;
+    }
 }

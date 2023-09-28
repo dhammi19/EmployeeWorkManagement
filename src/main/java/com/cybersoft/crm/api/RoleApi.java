@@ -37,6 +37,6 @@ public class RoleApi extends HttpServlet {
         out.print(json);
         out.flush();
 
-        System.out.println(json);
+        //System.out.println(json);
     }
 }

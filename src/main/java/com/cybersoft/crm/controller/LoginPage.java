@@ -58,6 +58,7 @@ public class LoginPage extends HttpServlet {
             HttpSession httpSession = req.getSession(); // Yêu cầu sử dụng session
             httpSession.setAttribute("isLogin", true);
             httpSession.setAttribute("id", id);
+            httpSession.setAttribute("userName", userService.getUserNameByUserId(id));
             httpSession.setMaxInactiveInterval(5*60);
             resp.sendRedirect(req.getContextPath()+"/home");
         } else {

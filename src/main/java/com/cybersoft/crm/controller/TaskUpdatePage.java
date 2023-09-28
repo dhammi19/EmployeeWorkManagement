@@ -29,7 +29,7 @@ public class TaskUpdatePage extends HttpServlet {
             req.setAttribute("jobName", jobService);
             req.setAttribute("statusName", statusService);
             req.setAttribute("statusList", statusService.getAllStatus());
-            req.getRequestDispatcher("/profile-edit.jsp").forward(req, resp);
+            req.getRequestDispatcher("/task-update.jsp").forward(req, resp);
         } catch(Exception e) {
             // System.out.println(e);
             resp.sendRedirect(req.getContextPath()+"/profile");
@@ -42,6 +42,6 @@ public class TaskUpdatePage extends HttpServlet {
 //        req.setAttribute("statusList", statusService.getAllStatus());
         // System.out.println(req.getParameter("taskId"));
 
-        // req.getRequestDispatcher("/profile-edit.jsp").forward(req, resp);
+        // req.getRequestDispatcher("/task-update.jsp").forward(req, resp);
     }
 }

@@ -102,4 +102,53 @@ public class TaskRepository {
 
         return rowsUpdated;
     }
+
+    public int getTotalOfTasksByStatusId(int statusId) {
+        int count = 0;
+
+        try {
+            String query = "select count(*) as total from tasks where status_id = ?";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, statusId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()) {
+                count = resultSet.getInt("total");
+            }
+
+            connection.close();
+        } catch(Exception e) {
+            System.out.println("Error at getTotalOfTasksByStatusId(): "+e.getMessage());
+        }
+
+        return count;
+    }
+
+    public int getAllTasksNumber() {
+        int total = 0;
+
+        try {
+            String query = "select count(*) as total from tasks";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()) {
+                total = resultSet.getInt("total");
+            }
+
+            connection.close();
+        }catch (Exception e) {
+            System.out.println("Error at getAllTasksNumber(): "+e.getMessage());
+        }
+
+        return total;
+    }
 }
