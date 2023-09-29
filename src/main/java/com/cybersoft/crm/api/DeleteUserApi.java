@@ -12,27 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "addUserApi", urlPatterns = {"/api/add-user"})
-public class AddUserApi extends HttpServlet {
+@WebServlet(name = "deleteUserApi", urlPatterns = {"/api/delete-user"})
+public class DeleteUserApi extends HttpServlet {
     private UserService userService = new UserService();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        String fullName = req.getParameter("fullName");
-        int role_id = Integer.parseInt(req.getParameter("roleId"));
-        boolean checkAddUser = userService.checkAddUser(email, password, fullName, role_id);
+        int id = Integer.parseInt(req.getParameter("id"));
+        boolean isSuccess = userService.deleteUserById(id);
 
         ResponseData responseData = new ResponseData();
         responseData.setStatus(200);
-        responseData.setSuccess(checkAddUser);
-        responseData.setDescription(checkAddUser ? "Thêm thành công" : "Thêm thất bại");
+        responseData.setSuccess(isSuccess);
+        responseData.setDescription(isSuccess ? "Xóa user thành công" : "Xóa user thất bại");
 
         Gson gson = new Gson();
         String json = gson.toJson(responseData); // toJson biến đối tượng thành 1 chuổi json

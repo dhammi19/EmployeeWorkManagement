@@ -17,4 +17,8 @@ public class RoleService {
 
         return result > 0 ? true : false;
     }
+
+    public String getRoleNameByRoleId(int id) {
+        return roleRepository.getRoleNameByRoleId(id);
+    }
 }

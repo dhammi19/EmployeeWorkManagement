@@ -155,147 +155,14 @@
                                                 <td>${user.getId()}</td>
                                                 <td>${user.getFullName()}</td>
                                                 <td>${user.getEmail()}</td>
-                                                <td>${user.getRoleId()}</td>
+                                                <td>${role.getRoleNameByRoleId(user.getRoleId())}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                    <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                                    <a href="/EmployeeWorkManagement/edit-user?id=${user.getId()}" class="btn btn-sm btn-primary">Sửa</a>
+                                                    <a href="#" userId="${user.getId()}" class="btn btn-sm btn-danger btn-delete-user">Xóa</a>
                                                     <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>
-
-<%--                                        <tr>--%>
-<%--                                            <td>2</td>--%>
-<%--                                            <td>Deshmukh</td>--%>
-<%--                                            <td>Gaylord</td>--%>
-<%--                                            <td>@Ritesh</td>--%>
-<%--                                            <td>member</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>3</td>--%>
-<%--                                            <td>Sanghani</td>--%>
-<%--                                            <td>Gusikowski</td>--%>
-<%--                                            <td>@Govinda</td>--%>
-<%--                                            <td>developer</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>4</td>--%>
-<%--                                            <td>Roshan</td>--%>
-<%--                                            <td>Rogahn</td>--%>
-<%--                                            <td>@Hritik</td>--%>
-<%--                                            <td>supporter</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>5</td>--%>
-<%--                                            <td>Joshi</td>--%>
-<%--                                            <td>Hickle</td>--%>
-<%--                                            <td>@Maruti</td>--%>
-<%--                                            <td>member</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>6</td>--%>
-<%--                                            <td>Nigam</td>--%>
-<%--                                            <td>Eichmann</td>--%>
-<%--                                            <td>@Sonu</td>--%>
-<%--                                            <td>supporter</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>1</td>--%>
-<%--                                            <td>Deshmukh</td>--%>
-<%--                                            <td>Prohaska</td>--%>
-<%--                                            <td>@Genelia</td>--%>
-<%--                                            <td>admin</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>2</td>--%>
-<%--                                            <td>Deshmukh</td>--%>
-<%--                                            <td>Gaylord</td>--%>
-<%--                                            <td>@Ritesh</td>--%>
-<%--                                            <td>member</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>3</td>--%>
-<%--                                            <td>Sanghani</td>--%>
-<%--                                            <td>Gusikowski</td>--%>
-<%--                                            <td>@Govinda</td>--%>
-<%--                                            <td>developer</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>4</td>--%>
-<%--                                            <td>Roshan</td>--%>
-<%--                                            <td>Rogahn</td>--%>
-<%--                                            <td>@Hritik</td>--%>
-<%--                                            <td>supporter</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>5</td>--%>
-<%--                                            <td>Joshi</td>--%>
-<%--                                            <td>Hickle</td>--%>
-<%--                                            <td>@Maruti</td>--%>
-<%--                                            <td>member</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                        <tr>--%>
-<%--                                            <td>6</td>--%>
-<%--                                            <td>Nigam</td>--%>
-<%--                                            <td>Eichmann</td>--%>
-<%--                                            <td>@Sonu</td>--%>
-<%--                                            <td>supporter</td>--%>
-<%--                                            <td>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
-<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
                                     </tbody>
                                 </table>
                             </div>
@@ -323,11 +190,13 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/delete-user.js"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
         });
     </script>
+
 </body>
 
 </html>

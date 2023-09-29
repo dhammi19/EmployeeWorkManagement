@@ -62,4 +62,30 @@ public class UserService {
 
         return result;
     }
+
+    public UsersModel getUserByUserId(int id) {
+        return usersRepository.getEmailAndFullNameOfUser(id);
+    }
+
+    public boolean isEmailExists(String email) {
+        return usersRepository.isEmailExists(email);
+    }
+
+    public boolean checkUpdated(int id, String fullName, String password, int roleId) {
+        if (usersRepository.updateUser(id, fullName, password, roleId) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean deleteUserById(int id) {
+        int checkDelete = usersRepository.deleteUserById(id);
+
+        if (checkDelete > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -134,24 +134,25 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" action="" method="post">
+                            <form class="form-horizontal form-material" action="" method="post" onsubmit="return validateForm()">
                                 <div class="form-group">
                                     <label class="col-md-12">Tên Đầy Đủ</label>
                                     <div class="col-md-12">
-                                        <input name="userName" type="text" placeholder="vd: Đào Hồ Anh"
-                                            class="form-control form-control-line"> </div>
+                                        <input name="userName" id="userName" type="text" placeholder="vd: Đào Hồ Anh"
+                                               class="form-control form-control-line">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input name="example-email" type="email" placeholder="vd: daohoanh.work@gmail.com"
-                                            class="form-control form-control-line"
-                                            id="example-email"> </div>
+                                        <input name="example-email"  type="email" placeholder="vd: daohoanh.work@gmail.com"
+                                               class="form-control form-control-line" id="example-email">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Mật Khẩu</label>
                                     <div class="col-md-12">
-                                        <input name="password" type="password" value="" class="form-control form-control-line">
+                                        <input name="password" id="password" type="password" value="" class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -166,11 +167,61 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button type="submit" roleId="${role.getId()}" class="btn btn-success btn-add-user">Thêm Thành Viên</button>
+                                        <button type="submit" class="btn btn-success btn-add-user">Thêm Thành Viên</button>
                                         <a href="/EmployeeWorkManagement/user-table" class="btn btn-primary">Quay lại</a>
                                     </div>
                                 </div>
                             </form>
+                            <script>
+                                function validateForm() {
+                                    var userName = document.getElementById("userName").value;
+                                    var email = document.getElementById("exampleEmail").value;
+                                    var password = document.getElementById("password").value;
+
+                                    if (userName === "" || email === "" || password === "") {
+                                        alert("Vui lòng nhập đầy đủ thông tin!");
+                                        return false; // Ngăn chặn việc gửi biểu mẫu nếu thông tin chưa được nhập đầy đủ.
+                                    }
+                                }
+                            </script>
+<%--                            <form class="form-horizontal form-material" action="" method="post">--%>
+<%--                                <div class="form-group">--%>
+<%--                                    <label class="col-md-12">Tên Đầy Đủ</label>--%>
+<%--                                    <div class="col-md-12">--%>
+<%--                                        <input name="userName" type="text" placeholder="vd: Đào Hồ Anh"--%>
+<%--                                            class="form-control form-control-line"> </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="form-group">--%>
+<%--                                    <label for="example-email" class="col-md-12">Email</label>--%>
+<%--                                    <div class="col-md-12">--%>
+<%--                                        <input name="example-email" type="email" placeholder="vd: daohoanh.work@gmail.com"--%>
+<%--                                            class="form-control form-control-line"--%>
+<%--                                            id="example-email"> </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="form-group">--%>
+<%--                                    <label class="col-md-12">Mật Khẩu</label>--%>
+<%--                                    <div class="col-md-12">--%>
+<%--                                        <input name="password" type="password" value="" class="form-control form-control-line">--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="form-group">--%>
+<%--                                    <label class="col-sm-12">Quyền</label>--%>
+<%--                                    <div class="col-sm-12">--%>
+<%--                                        <select name="roleId" id="roleIdSelect" class="form-control form-control-line">--%>
+<%--                                            <c:forEach items="${roles.getAllRoles()}" var="role">--%>
+<%--                                                <option value="${role.getId()}">${role.getName()}</option>--%>
+<%--                                            </c:forEach>--%>
+<%--                                        </select>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                <div class="form-group">--%>
+<%--                                    <div class="col-sm-12">--%>
+<%--                                        <button type="submit" roleId="${role.getId()}" class="btn btn-success btn-add-user">Thêm Thành Viên</button>--%>
+<%--                                        <a href="/EmployeeWorkManagement/user-table" class="btn btn-primary">Quay lại</a>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </form>--%>
+
                         </div>
                     </div>
                     <div class="col-md-2 col-12"></div>
@@ -195,7 +246,8 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script src="js/add-user.js"></script>
+    <script src="js/check-duplicate-email.js"></script>
+<%--    <script src="js/add-user.js"></script>--%>
 </body>
 
 </html>

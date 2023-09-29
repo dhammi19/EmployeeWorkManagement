@@ -61,6 +61,7 @@ public class UsersRepository {
             if (resultSet.next()) {
                 user.setId(resultSet.getInt("id"));
                 user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
                 user.setFullName(resultSet.getString("fullname"));
                 user.setAvatar(resultSet.getString("avatar"));
                 user.setRoleId(resultSet.getInt("role_id"));
@@ -290,6 +291,71 @@ public class UsersRepository {
             connection.close();
         } catch (Exception e) {
             System.out.println("Error at addUser(): "+e.getMessage());
+        }
+
+        return result;
+    }
+
+    public boolean isEmailExists(String email) {
+        try {
+            // Thực hiện kết nối đến cơ sở dữ liệu
+            Connection connection = MysqlConnection.getConnection(); // Thay YourDatabaseConnection bằng cách thiết lập kết nối của bạn
+
+            // Tạo truy vấn SQL để kiểm tra email
+            String query = "SELECT * FROM users WHERE email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+
+            // Thực hiện truy vấn
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Kiểm tra xem email đã tồn tại hay chưa
+            return resultSet.next(); // Trả về true nếu email đã tồn tại, ngược lại trả về false
+        } catch (Exception e) {
+            System.out.println("Error at isEmailExists(): "+e.getMessage());
+            return false; // Xử lý lỗi và trả về false nếu có lỗi
+        }
+    }
+
+    public int updateUser(int id, String fullName, String password, int roleId) {
+        int rowsEffected = 0;
+
+        try {
+            String query = "update users set fullname = ?, password = ?, role_id = ? where id = ?";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, fullName);
+            preparedStatement.setString(2, password);
+            preparedStatement.setInt(3, roleId);
+            preparedStatement.setInt(4, id);
+
+            rowsEffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at updateUser(): "+e.getMessage());
+        }
+
+        return rowsEffected;
+    }
+
+    public int deleteUserById(int id) {
+        int result = 0;
+        try {
+            String query = "delete from users where id = ?";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            result = preparedStatement.executeUpdate();
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at deleteUserById(): "+e.getMessage());
         }
 
         return result;

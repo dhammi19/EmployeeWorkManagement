@@ -58,4 +58,27 @@ public class RoleRepository {
 
         return result;
     }
+
+    public String getRoleNameByRoleId(int id) {
+        String roleName = "";
+
+        try {
+            String query = "select name from roles where id = ?";
+
+            Connection connection = MysqlConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                roleName = resultSet.getString("name");
+            }
+
+            connection.close();
+        } catch(Exception e) {
+            System.out.println("Error at getRoleNameByRoleId(): "+e.getMessage());
+        }
+
+        return roleName;
+    }
 }

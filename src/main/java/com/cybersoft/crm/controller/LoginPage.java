@@ -59,7 +59,7 @@ public class LoginPage extends HttpServlet {
             httpSession.setAttribute("isLogin", true);
             httpSession.setAttribute("id", id);
             httpSession.setAttribute("userName", userService.getUserNameByUserId(id));
-            httpSession.setMaxInactiveInterval(5*60);
+            httpSession.setMaxInactiveInterval(10*60);
             resp.sendRedirect(req.getContextPath()+"/home");
         } else {
             req.getRequestDispatcher("/login.html").forward(req, resp);
