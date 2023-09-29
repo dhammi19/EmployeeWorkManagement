@@ -20,8 +20,13 @@ public class EditUserPage extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
 
+        HttpSession session = req.getSession();
+
+        String name = (String) session.getAttribute("userName");
+
         req.setAttribute("user",  userService.getUserByUserId(id));
         req.setAttribute("roles", roleService);
+        req.setAttribute("userName", name);
         req.getRequestDispatcher("/edit-user.jsp").forward(req, resp);
     }
 

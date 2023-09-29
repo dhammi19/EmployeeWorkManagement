@@ -45,4 +45,8 @@ public class TaskService {
     public int getAllTasksNumber() {
         return taskRepository.getAllTasksNumber();
     }
+
+    public List<TasksModel> getAllTasks(int userId, int statusId) {
+        return taskRepository.getTasksByUserAndStatusId(userId, statusId);
+    }
 }

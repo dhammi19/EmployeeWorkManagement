@@ -360,4 +360,44 @@ public class UsersRepository {
 
         return result;
     }
+
+    public double getTaskPercentageByUserAndStatusId(int userId, int statusId) {
+        double completedTaskPercentage = 0;
+        double roundedPercentage = 0;
+        try {
+            String query = "SELECT (t1.task_count / t2.total_count)*100 AS task_ratio\n" +
+                    "FROM (\n" +
+                    "    SELECT COUNT(*) AS task_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ? AND status_id = ?\n" +
+                    ") AS t1,\n" +
+                    "(\n" +
+                    "    SELECT COUNT(*) AS total_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE user_id = ?\n" +
+                    ") AS t2";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, statusId);
+            preparedStatement.setInt(3, userId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                completedTaskPercentage = resultSet.getDouble("task_ratio");
+                BigDecimal bd = new BigDecimal(completedTaskPercentage);
+                bd = bd.setScale(2, RoundingMode.HALF_UP); // Làm tròn và giữ lại 2 số thập phân
+                roundedPercentage = bd.doubleValue();
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getTaskPercentageByUserAndStatusId(): "+e.getMessage());
+        }
+
+        return roundedPercentage;
+    }
 }

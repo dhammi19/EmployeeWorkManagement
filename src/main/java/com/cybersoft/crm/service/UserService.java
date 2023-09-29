@@ -88,4 +88,8 @@ public class UserService {
             return false;
         }
     }
+
+    public double getTaskPercentageByUserAndStatusId(int userId, int statusId) {
+        return usersRepository.getTaskPercentageByUserAndStatusId(userId, statusId);
+    }
 }

@@ -70,7 +70,7 @@
                             <div class="dropdown">
                                 <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
                                     <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                    <b class="hidden-xs">Cybersoft</b> 
+                                    <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -159,7 +159,7 @@
                                                 <td>
                                                     <a href="/EmployeeWorkManagement/edit-user?id=${user.getId()}" class="btn btn-sm btn-primary">Sửa</a>
                                                     <a href="#" userId="${user.getId()}" class="btn btn-sm btn-danger btn-delete-user">Xóa</a>
-                                                    <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>
+                                                    <a href="/EmployeeWorkManagement/user-detail?userId=${user.getId()}" class="btn btn-sm btn-info">Xem</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>
