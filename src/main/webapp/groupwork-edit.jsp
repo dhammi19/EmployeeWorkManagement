@@ -1,7 +1,3 @@
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page isELIgnored="false" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +64,7 @@
                     <div class="dropdown">
                         <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#">
                             <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                            <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
+                            <b class="hidden-xs">Cybersoft</b>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -106,7 +102,7 @@
                 </li>
                 <li>
                     <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
-                                                                aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
+                                                                aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                 </li>
                 <li>
                     <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw"
@@ -125,7 +121,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Cập nhật thành viên</h4>
+                    <h4 class="page-title">Thêm mới dự án</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -134,48 +130,29 @@
                 <div class="col-md-2 col-12"></div>
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
-                        <form class="form-horizontal form-material" action="http://localhost:8081/EmployeeWorkManagement/edit-user" method="post">
+                        <form class="form-horizontal form-material">
                             <div class="form-group">
-                                <label class="col-md-12">Id</label>
+                                <label class="col-md-12">Tên dự án</label>
                                 <div class="col-md-12">
-                                    <input name="id" type="text" readonly value="${user.getId()}"
+                                    <input type="text" placeholder="Tên công việc"
                                            class="form-control form-control-line"> </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Tên Đầy Đủ</label>
+                                <label class="col-md-12">Ngày bắt đầu</label>
                                 <div class="col-md-12">
-                                    <input name="userName" type="text" value="${user.getFullName()}"
+                                    <input type="text" placeholder="dd/MM/yyyy"
                                            class="form-control form-control-line"> </div>
                             </div>
                             <div class="form-group">
-                                <label for="example-email" class="col-md-12">Email</label>
+                                <label class="col-md-12">Ngày kết thúc</label>
                                 <div class="col-md-12">
-                                    <input name="example-email" type="email" readonly value="${user.getEmail()}"
-                                           class="form-control form-control-line"
-                                           id="example-email"> </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Mật Khẩu</label>
-                                <div class="col-md-12">
-                                    <input id="passwordField" name="password" type="password" value="${user.getPassword()}" class="form-control form-control-line">
-                                    <button id="togglePasswordBtn" type="button" class="btn btn-sm">Hiện Mật Khẩu</button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-12">Quyền</label>
-                                <div class="col-sm-12">
-                                    <select name="roleId" id="roleIdSelect" class="form-control form-control-line">
-
-                                        <c:forEach items="${roles.getAllRoles()}" var="role">
-                                            <option value="${role.getId()}">${role.getName()}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
+                                    <input type="text" placeholder="dd/MM/yyyy"
+                                           class="form-control form-control-line"> </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-success">Cập nhật</button>
-                                    <a href="/EmployeeWorkManagement/user-table" class="btn btn-primary">Quay lại</a>
+                                    <button type="submit" class="btn btn-success">Lưu lại</button>
+                                    <a href="groupwork.jsp" class="btn btn-primary">Quay lại</a>
                                 </div>
                             </div>
                         </form>
@@ -203,7 +180,6 @@
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<script src="js/togglePasswordBtn.js"></script>
 </body>
 
 </html>

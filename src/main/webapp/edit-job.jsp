@@ -102,7 +102,7 @@
                 </li>
                 <li>
                     <a href="/EmployeeWorkManagement/job" class="waves-effect"><i class="fa fa-table fa-fw"
-                                                                    aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
+                                                                                  aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                 </li>
                 <li>
                     <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -125,7 +125,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Cập nhật thành viên</h4>
+                    <h4 class="page-title">Sửa dự án</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -134,51 +134,62 @@
                 <div class="col-md-2 col-12"></div>
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
-                        <form class="form-horizontal form-material" action="http://localhost:8081/EmployeeWorkManagement/edit-user" method="post">
+                        <form class="form-horizontal form-material" action="http://localhost:8081/EmployeeWorkManagement/edit-job" method="post" onsubmit="return validateForm()">
                             <div class="form-group">
-                                <label class="col-md-12">Id</label>
+                                <label class="col-md-12">Mã dự án</label>
                                 <div class="col-md-12">
-                                    <input name="id" type="text" readonly value="${user.getId()}"
-                                           class="form-control form-control-line"> </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Tên Đầy Đủ</label>
-                                <div class="col-md-12">
-                                    <input name="userName" type="text" value="${user.getFullName()}"
-                                           class="form-control form-control-line"> </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-email" class="col-md-12">Email</label>
-                                <div class="col-md-12">
-                                    <input name="example-email" type="email" readonly value="${user.getEmail()}"
-                                           class="form-control form-control-line"
-                                           id="example-email"> </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Mật Khẩu</label>
-                                <div class="col-md-12">
-                                    <input id="passwordField" name="password" type="password" value="${user.getPassword()}" class="form-control form-control-line">
-                                    <button id="togglePasswordBtn" type="button" class="btn btn-sm">Hiện Mật Khẩu</button>
+                                    <input name="jobId" value="${job.getId()}" type="text" readonly
+                                           class="form-control form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-12">Quyền</label>
-                                <div class="col-sm-12">
-                                    <select name="roleId" id="roleIdSelect" class="form-control form-control-line">
-
-                                        <c:forEach items="${roles.getAllRoles()}" var="role">
-                                            <option value="${role.getId()}">${role.getName()}</option>
-                                        </c:forEach>
-                                    </select>
+                                <label class="col-md-12">Tên dự án</label>
+                                <div class="col-md-12">
+                                    <input name="jobName" value="${job.getName()}" type="text" placeholder="Tên công việc"
+                                           class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Ngày bắt đầu</label>
+                                <div class="col-md-12">
+                                    <input id="startDateInput" value="${job.getStartDate()}" name="startDate" type="text" placeholder="dd-MM-yyyy Ví dụ: 2023-01-01"
+                                           class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Ngày kết thúc</label>
+                                <div class="col-md-12">
+                                    <input id="endDateInput" value="${job.getEndDate()}" name="endDate" type="text" placeholder="dd-MM-yyyy Ví dụ: 2023-01-31"
+                                           class="form-control form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-success">Cập nhật</button>
-                                    <a href="/EmployeeWorkManagement/user-table" class="btn btn-primary">Quay lại</a>
+                                    <button type="submit" class="btn btn-success">Lưu lại</button>
+                                    <a href="/EmployeeWorkManagement/job" class="btn btn-primary">Quay lại</a>
                                 </div>
                             </div>
                         </form>
+                        <script>
+                            function validateForm() {
+                                var startDate = document.getElementById("startDateInput").value;
+                                var endDate = document.getElementById("endDateInput").value;
+                                var datePattern = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+                                // Kiểm tra nếu bất kỳ trường nào trống, hiển thị thông báo và ngăn chặn việc gửi form.
+                                if (startDate.trim() === "" || endDate.trim() === "") {
+                                    alert("Vui lòng điền đầy đủ thông tin cho cả hai trường.");
+                                    return false;
+                                }
+
+                                if (!datePattern.test(startDate) || !datePattern.test(endDate)) {
+                                    alert("Định dạng ngày tháng không hợp lệ. Vui lòng nhập theo định dạng dd-MM-yyyy.");
+                                    return false;
+                                }
+                                alert("Cập nhật thành công!");
+                                return true;
+                            }
+                        </script>
                     </div>
                 </div>
                 <div class="col-md-2 col-12"></div>
@@ -203,7 +214,6 @@
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<script src="js/togglePasswordBtn.js"></script>
 </body>
 
 </html>

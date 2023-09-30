@@ -101,8 +101,8 @@
                                                                          aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
-                        <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
+                        <a href="/EmployeeWorkManagement/job" class="waves-effect"><i class="fa fa-table fa-fw"
+                                                                        aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
                         <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -164,7 +164,7 @@
                             <div class="progress">
                                 <div class="progress-bar progress-bar-danger" role="progressbar"
                                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 1%"></div>
+                                     style="width: ${users.getTaskPercentageByUserAndStatusId(user.getId(), status.getId())}%"></div>
                             </div>
                         </div>
                     </div>

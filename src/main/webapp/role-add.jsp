@@ -101,8 +101,8 @@
                                                                          aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
-                        <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
+                        <a href="/EmployeeWorkManagement/job" class="waves-effect"><i class="fa fa-table fa-fw"
+                                                                        aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
                         <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
