@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "rolePage", urlPatterns = {"/role"})
-public class RolePage extends HttpServlet {
+@WebServlet(name = "addRolePage", urlPatterns = {"/add-role"})
+public class AddRolePage extends HttpServlet {
     private RoleService roleService = new RoleService();
 
     @Override
@@ -20,8 +20,21 @@ public class RolePage extends HttpServlet {
 
         String name = (String) session.getAttribute("userName");
 
-        req.setAttribute("roles", roleService.getAllRoles());
         req.setAttribute("userName", name);
-        req.getRequestDispatcher("/role-table.jsp").forward(req, resp);
+        req.getRequestDispatcher("role-add.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String description = req.getParameter("description");
+
+        boolean isUpdated = roleService.addRole(name, description);
+
+        if (isUpdated) {
+            resp.sendRedirect(req.getContextPath()+"/role");
+        } else {
+            req.getRequestDispatcher("/add-role").forward(req, resp);
+        }
     }
 }

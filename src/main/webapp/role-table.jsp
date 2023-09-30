@@ -70,7 +70,7 @@
                             <div class="dropdown">
                                 <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
                                     <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                    <b class="hidden-xs">Cybersoft</b> 
+                                    <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -130,7 +130,7 @@
                         <h4 class="page-title">Danh sách quyền</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-                        <a href="role-add.html" class="btn btn-sm btn-success">Thêm mới</a>
+                        <a href="/EmployeeWorkManagement/add-role" class="btn btn-sm btn-success">Thêm mới</a>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -155,7 +155,7 @@
                                                 <td>${role.getName()}</td>
                                                 <td>${role.getDescription()}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-sm btn-primary btn-update">Sửa</a>
+                                                    <a href="/EmployeeWorkManagement/edit-role?id=${role.getId()}" class="btn btn-sm btn-primary btn-update">Sửa</a>
                                                     <a href="#" roleId="${role.getId()}" class="btn btn-sm btn-danger btn-delete">Xóa</a>
                                                 </td>
                                             </tr>

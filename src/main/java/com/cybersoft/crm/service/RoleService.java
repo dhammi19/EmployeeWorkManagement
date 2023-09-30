@@ -21,4 +21,28 @@ public class RoleService {
     public String getRoleNameByRoleId(int id) {
         return roleRepository.getRoleNameByRoleId(id);
     }
+
+    public boolean addRole(String name, String description) {
+        int isUpdated = roleRepository.addRole(name, description);
+        if (isUpdated > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean editRole(String name, String description, int id) {
+        int isUpdated = roleRepository.updateRoleById(name, description, id);
+        if (isUpdated > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public RoleModel getRoleById(int id) {
+        RoleModel roleModel = roleRepository.getRoleById(id);
+//        System.out.println("Id: "+roleModel.getId()+", Name: "+roleModel.getName()+", Description: "+roleModel.getDescription());
+        return roleModel;
+    }
 }

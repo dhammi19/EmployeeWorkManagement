@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +68,7 @@
                             <div class="dropdown">
                                 <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
                                     <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                    <b class="hidden-xs">Cybersoft</b> 
+                                    <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -130,24 +134,24 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" action="http://localhost:8081/EmployeeWorkManagement/add-role" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Tên quyền</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Tên quyền"
+                                        <input name="name" type="text" placeholder="Tên quyền"
                                             class="form-control form-control-line" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Mô tả</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Mô tả" class="form-control form-control-line" />
+                                        <input name="description" type="text" placeholder="Mô tả" class="form-control form-control-line" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">Add Role</button>
-                                        <a href="role-table.jsp" class="btn btn-primary">Quay lại</a>
+                                        <button type="submit" class="btn btn-success">Thêm quyền</button>
+                                        <a href="/EmployeeWorkManagement/role" class="btn btn-primary">Quay lại</a>
                                     </div>
                                 </div>
                             </form>
