@@ -68,4 +68,14 @@ public class JobService {
 
         return isAdded;
     }
+
+    public boolean isJobDeleted(int id) {
+        int rowsEffected = jobsRepository.deleteJobsById(id);
+
+        if(rowsEffected > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

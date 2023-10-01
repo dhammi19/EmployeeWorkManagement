@@ -145,4 +145,26 @@ public class JobsRepository {
 
         return rowsEffected;
     }
+
+    public int deleteJobsById(int id) {
+        int rowsEffected = 0;
+
+        try {
+            String query = "delete from jobs where id = ?";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            rowsEffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Errror at deleteJobById(): "+e.getMessage());
+        }
+
+        return rowsEffected;
+    }
+
 }

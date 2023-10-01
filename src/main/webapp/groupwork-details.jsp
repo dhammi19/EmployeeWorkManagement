@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -50,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="top-left-part">
-                        <a class="logo" href="i/EmployeeWorkManagement/home">
+                        <a class="logo" href="/EmployeeWorkManagement/home">
                             <b>
                                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                             </b>
@@ -74,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="dropdown">
                                 <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
                                     <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                    <b class="hidden-xs">Cybersoft</b> 
+                                    <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -131,14 +135,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Chi tiết công việc </h4>
+                        <h4 class="page-title">Chi tiết dự án: <span style="color: red">${job.getName()}</span>  </h4>
                     </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        <ol class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li class="active">Blank Page</li>
-                        </ol>
-                    </div>
+<%--                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">--%>
+<%--                        <ol class="breadcrumb">--%>
+<%--                            <li><a href="#">Dashboard</a></li>--%>
+<%--                            <li class="active">Blank Page</li>--%>
+<%--                        </ol>--%>
+<%--                    </div>--%>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- BEGIN THỐNG KÊ -->

@@ -158,8 +158,8 @@
                                                 <td>${job.getEndDate()}</td>
                                                 <td>
                                                     <a href="/EmployeeWorkManagement/edit-job?id=${job.getId()}" class="btn btn-sm btn-primary">Sửa</a>
-                                                    <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-                                                    <a href="groupwork-details.html" class="btn btn-sm btn-info">Xem</a>
+                                                    <a href="#" jobId="${job.getId()}" class="btn btn-sm btn-danger btn-delete-job">Xóa</a>
+                                                    <a href="/EmployeeWorkManagement/job-detail?id=${job.getId()}" class="btn btn-sm btn-info">Xem</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -172,7 +172,7 @@
 <%--                                            <td>--%>
 <%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
 <%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
-<%--                                                <a href="groupwork-details.html" class="btn btn-sm btn-info">Xem</a>--%>
+<%--                                                <a href="groupwork-details.jsp" class="btn btn-sm btn-info">Xem</a>--%>
 <%--                                            </td>--%>
 <%--                                        </tr>--%>
                                     </tbody>
@@ -202,6 +202,7 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/delete-job.js"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
