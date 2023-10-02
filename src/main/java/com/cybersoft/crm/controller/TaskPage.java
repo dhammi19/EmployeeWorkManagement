@@ -13,25 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "jobDetailPage", urlPatterns = {"/job-detail"})
-public class JobDetailPage extends HttpServlet {
-    private JobService jobService = new JobService();
-    private StatusService statusService = new StatusService();
+@WebServlet(name = "taskPage", urlPatterns = {"/task"})
+public class TaskPage extends HttpServlet {
     private TaskService taskService = new TaskService();
+    private JobService jobService = new JobService();
     private UserService userService = new UserService();
+    private StatusService statusService = new StatusService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
         String name = (String) session.getAttribute("userName");
-        int id = Integer.parseInt(req.getParameter("id"));
 
+        req.setAttribute("tasks", taskService);
         req.setAttribute("userName", name);
-        req.setAttribute("job", jobService.getJobById(id));
-        req.setAttribute("statuses", statusService);
-        req.setAttribute("task", taskService);
+        req.setAttribute("job", jobService);
         req.setAttribute("user", userService);
-        req.getRequestDispatcher("/groupwork-details.jsp").forward(req, resp);
+        req.setAttribute("status", statusService);
+        req.getRequestDispatcher("/task.jsp").forward(req, resp);
     }
 }

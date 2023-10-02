@@ -4,6 +4,8 @@ import com.cybersoft.crm.config.MysqlConnection;
 import com.cybersoft.crm.model.StatusModel;
 import com.cybersoft.crm.model.TasksModel;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -183,6 +185,139 @@ public class TaskRepository {
             connection.close();
         } catch(Exception e) {
             System.out.println("Error at getTasksByUserAndStatusId(): "+e.getMessage());
+        }
+
+        return list;
+    }
+
+    public double getTaskPercentageByJobAndStatusId(int jobId, int statusId) {
+        double completedTaskPercentage = 0;
+        double roundedPercentage = 0;
+
+        try {
+            String query = "SELECT (t1.task_count / t2.total_count)*100 AS task_ratio\n" +
+                    "FROM (\n" +
+                    "    SELECT COUNT(*) AS task_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE job_id = ? AND status_id = ?\n" +
+                    ") AS t1,\n" +
+                    "(\n" +
+                    "    SELECT COUNT(*) AS total_count\n" +
+                    "    FROM tasks\n" +
+                    "    WHERE job_id = ?\n" +
+                    ") AS t2";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, jobId);
+            preparedStatement.setInt(2, statusId);
+            preparedStatement.setInt(3, jobId);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                completedTaskPercentage = resultSet.getDouble("task_ratio");
+                BigDecimal bd = new BigDecimal(completedTaskPercentage);
+                bd = bd.setScale(2, RoundingMode.HALF_UP); // Làm tròn và giữ lại 2 số thập phân
+                roundedPercentage = bd.doubleValue();
+            }
+
+            connection.close();
+        } catch(Exception e) {
+            System.out.println("Error at getTaskPercentageByJobAndStatusId(): "+e.getMessage());
+        }
+
+        return roundedPercentage;
+    }
+
+    public int getTotalTaskOfJobByJobId(int id) {
+        int count = 0;
+
+        try {
+            String query = "select count(*) as total from tasks where job_id = ?";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                count = resultSet.getInt("total");
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at etTotalTaskOfJobByJobId(): "+e.getMessage());
+        }
+
+        return count;
+    }
+
+    public List<TasksModel> getTasksByJobId(int id) {
+        List<TasksModel> list = new ArrayList<>();
+
+        try {
+            String query = "select * from tasks where job_id = ?";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                TasksModel tasksModel = new TasksModel();
+                tasksModel.setId(resultSet.getInt("id"));
+                tasksModel.setName(resultSet.getString("name"));
+                tasksModel.setStartDate(resultSet.getDate("start_date"));
+                tasksModel.setEndDate(resultSet.getDate("end_date"));
+                tasksModel.setUserId(resultSet.getInt("user_id"));
+                tasksModel.setJobId(resultSet.getInt("job_id"));
+                tasksModel.setStatusId(resultSet.getInt("status_id"));
+
+                list.add(tasksModel);
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getTasksByJobId(): "+e.getMessage());
+        }
+
+        return list;
+    }
+
+    public List<TasksModel> getAllTasks() {
+        List<TasksModel> list = new ArrayList<>();
+
+        try {
+            String query = "select * from tasks";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()) {
+                TasksModel tasksModel = new TasksModel();
+                tasksModel.setId(resultSet.getInt("id"));
+                tasksModel.setName(resultSet.getString("name"));
+                tasksModel.setStartDate(resultSet.getDate("start_date"));
+                tasksModel.setEndDate(resultSet.getDate("end_date"));
+                tasksModel.setUserId(resultSet.getInt("user_id"));
+                tasksModel.setJobId(resultSet.getInt("job_id"));
+                tasksModel.setStatusId(resultSet.getInt("status_id"));
+
+                list.add(tasksModel);
+            }
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at getAllTasks(): "+e.getMessage());
         }
 
         return list;

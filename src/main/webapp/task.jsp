@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,12 +57,12 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
                         <li>
-                            <form role="search" class="app-search hidden-xs">
-                                <input type="text" placeholder="Search..." class="form-control"> 
-                                <a href="">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
+<%--                            <form role="search" class="app-search hidden-xs">--%>
+<%--                                <input type="text" placeholder="Search..." class="form-control"> --%>
+<%--                                <a href="">--%>
+<%--                                    <i class="fa fa-search"></i>--%>
+<%--                                </a>--%>
+<%--                            </form>--%>
                         </li>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
@@ -66,7 +70,7 @@
                             <div class="dropdown">
                                 <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#"> 
                                     <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" />
-                                    <b class="hidden-xs">Cybersoft</b> 
+                                    <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -103,17 +107,17 @@
                                                                         aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
-                        <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="/EmployeeWorkManagement/task" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
                     </li>
-                    <li>
-                        <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Blank Page</span></a>
-                    </li>
-                    <li>
-                        <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Error 404</span></a>
-                    </li>
+<%--                    <li>--%>
+<%--                        <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw"--%>
+<%--                                aria-hidden="true"></i><span class="hide-menu">Blank Page</span></a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw"--%>
+<%--                                aria-hidden="true"></i><span class="hide-menu">Error 404</span></a>--%>
+<%--                    </li>--%>
                 </ul>
             </div>
         </div>
@@ -138,7 +142,7 @@
                                 <table class="table" id="example">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
+                                            <th>Mã Công Việc</th>
                                             <th>Tên Công Việc</th>
                                             <th>Dự Án</th>
                                             <th>Người Thực Hiện</th>
@@ -149,34 +153,37 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Phân tích dự án</td>
-                                            <td>Dự án CRM</td>
-                                            <td>Nguyễn Văn Tèo</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>Đã hoàn thành</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-                                                <a href="#" class="btn btn-sm btn-info">Xem</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiết kế database</td>
-                                            <td>Dự án CRM</td>
-                                            <td>Trần Thị Lan</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>Đang thực hiện</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-                                                <a href="#" class="btn btn-sm btn-info">Xem</a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach items="${tasks.getAllTasks()}" var="task">
+                                            <tr>
+                                                <td>${task.getId()}</td>
+                                                <td>${task.getName()}</td>
+                                                <td>${job.getJobNameByItsId(task.getJobId())}</td>
+                                                <td>${user.getUserNameByUserId(task.getUserId())}</td>
+                                                <td>${task.getStartDate()}</td>
+                                                <td>${task.getEndDate()}</td>
+                                                <td>${status.getStatusNameByItsId(task.getStatusId())}</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                                    <a href="#" class="btn btn-sm btn-info">Xem</a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+
+<%--                                        <tr>--%>
+<%--                                            <td>1</td>--%>
+<%--                                            <td>Thiết kế database</td>--%>
+<%--                                            <td>Dự án CRM</td>--%>
+<%--                                            <td>Trần Thị Lan</td>--%>
+<%--                                            <td>22/05/2019</td>--%>
+<%--                                            <td>30/05/2019</td>--%>
+<%--                                            <td>Đang thực hiện</td>--%>
+<%--                                            <td>--%>
+<%--                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>--%>
+<%--                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>--%>
+<%--                                                <a href="#" class="btn btn-sm btn-info">Xem</a>--%>
+<%--                                            </td>--%>
+<%--                                        </tr>--%>
                                     </tbody>
                                 </table>
                             </div>

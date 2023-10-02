@@ -57,12 +57,12 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
                         <li>
-                            <form role="search" class="app-search hidden-xs">
-                                <input type="text" placeholder="Search..." class="form-control"> 
-                                <a href="">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
+<%--                            <form role="search" class="app-search hidden-xs">--%>
+<%--                                <input type="text" placeholder="Search..." class="form-control"> --%>
+<%--                                <a href="">--%>
+<%--                                    <i class="fa fa-search"></i>--%>
+<%--                                </a>--%>
+<%--                            </form>--%>
                         </li>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
@@ -107,17 +107,17 @@
                                                                         aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
-                        <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
+                        <a href="/EmployeeWorkManagement/task" class="waves-effect"><i class="fa fa-table fa-fw"
+                                                                   aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
                     </li>
-                    <li>
-                        <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Blank Page</span></a>
-                    </li>
-                    <li>
-                        <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Error 404</span></a>
-                    </li>
+<%--                    <li>--%>
+<%--                        <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw"--%>
+<%--                                aria-hidden="true"></i><span class="hide-menu">Blank Page</span></a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw"--%>
+<%--                                aria-hidden="true"></i><span class="hide-menu">Error 404</span></a>--%>
+<%--                    </li>--%>
                 </ul>
             </div>
         </div>

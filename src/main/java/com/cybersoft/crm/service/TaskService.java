@@ -3,6 +3,7 @@ package com.cybersoft.crm.service;
 import com.cybersoft.crm.model.TasksModel;
 import com.cybersoft.crm.repository.TaskRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskService {
@@ -48,5 +49,21 @@ public class TaskService {
 
     public List<TasksModel> getAllTasks(int userId, int statusId) {
         return taskRepository.getTasksByUserAndStatusId(userId, statusId);
+    }
+
+    public double getTaskPercentageByJobAndStatusId(int jobId, int statusId) {
+        return taskRepository.getTaskPercentageByJobAndStatusId(jobId, statusId);
+    }
+
+    public int getTasksOfJob(int id) {
+        return taskRepository.getTotalTaskOfJobByJobId(id);
+    }
+
+    public List<TasksModel> showTasksOfJob(int id) {
+        return taskRepository.getTasksByJobId(id);
+    }
+
+    public List<TasksModel> getAllTasks() {
+        return taskRepository.getAllTasks();
     }
 }
