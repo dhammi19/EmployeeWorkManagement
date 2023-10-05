@@ -29,6 +29,7 @@ public class ProfilePage extends HttpServlet {
 
         int id = (int) session.getAttribute("id");
         String name = (String) session.getAttribute("userName");
+        int roleId = (int) session.getAttribute("roleId");
 
         req.setAttribute("showEmailAndFullName", userService.getEmailAndFullNameOfUserService(id));
         req.setAttribute("unstartedTaskPercentage", userService.getUnstartedTaskPercentage(id));
@@ -38,6 +39,7 @@ public class ProfilePage extends HttpServlet {
         req.setAttribute("jobName", jobService);
         req.setAttribute("statusName", statusService);
         req.setAttribute("userName", name);
+        req.setAttribute("roleId", roleId);
         req.getRequestDispatcher("/profile.jsp").forward(req, resp);
     }
 }

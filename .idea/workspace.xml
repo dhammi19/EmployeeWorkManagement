@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a7bd32-bb0a-43d1-83ae-8793da390753" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/TaskUpdatePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/TaskUpdatePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/JobService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/CustomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/config/CustomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/UsersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-update.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/TaskUpdatePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/TaskUpdatePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/repository/TaskRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/repository/TaskRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/service/TaskService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/service/TaskService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +65,7 @@
       <recent name="E:\GitHub\EmployeeWorkManagement\src\main\webapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\EmployeeWorkManagement\src\main\webapp\js" />
       <recent name="E:\GitHub\EmployeeWorkManagement\src\main\webapp" />
     </key>
   </component>
@@ -138,7 +134,7 @@
       <workItem from="1696305784724" duration="1065000" />
       <workItem from="1696321637796" duration="5862000" />
       <workItem from="1696431201941" duration="2107000" />
-      <workItem from="1696476204722" duration="6863000" />
+      <workItem from="1696476204722" duration="16587000" />
     </task>
     <servers />
   </component>
@@ -156,19 +152,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/UsersRepository.java</url>
-          <line>363</line>
-          <properties class="com.cybersoft.crm.repository.UsersRepository" method="getTaskPercentageByUserAndStatusId">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -400,4 +400,27 @@ public class UsersRepository {
 
         return roundedPercentage;
     }
+
+    public int getUserRoleById(int id) {
+        int roleId = 0;
+
+        try {
+            String query = "select role_id from users where id = ?";
+
+            Connection connection = MysqlConnection.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()) {
+                roleId = resultSet.getInt("role_id");
+            }
+        } catch (Exception e) {
+            System.out.println("Error at getUserRoleById(): "+e.getMessage());
+        }
+
+        return roleId;
+    }
 }

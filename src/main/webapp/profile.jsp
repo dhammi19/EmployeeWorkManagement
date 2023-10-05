@@ -238,7 +238,10 @@
                                             <th>Ngày Bắt Đầu</th>
                                             <th>Ngày Kết Thúc</th>
                                             <th>Trạng Thái</th>
-                                            <th>Hành Động</th>
+                                            <c:if test="${roleId} == 1">
+                                                <th>Hành Động</th>
+                                            </c:if>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -253,7 +256,9 @@
                                                 <td>
                                                     <form action="http://localhost:8081/EmployeeWorkManagement/task-update" method="post">
                                                         <input type="hidden" name="taskId" value="${task.getId()}" />
-                                                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                                                        <c:if test="${roleId} == 1">
+                                                            <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                                                        </c:if>
 <%--                                                        <a name="taskId" href="/EmployeeWorkManagement/task-update" class="btn btn-sm btn-primary">Cập nhật</a>--%>
                                                     </form>
 <%--                                                    <a name="${task.getId()}" href="/EmployeeWorkManagement/task-update" class="btn btn-sm btn-primary">Cập nhật</a>--%>

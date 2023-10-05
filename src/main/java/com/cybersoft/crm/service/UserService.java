@@ -114,4 +114,10 @@ public class UserService {
 
         return userList;
     }
+
+    public int getRoleIdByUserId(int id) {
+        int roleId = usersRepository.getUserRoleById(id);
+        //System.out.println(roleId);
+        return roleId;
+    }
 }
