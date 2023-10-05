@@ -5,6 +5,7 @@ import com.cybersoft.crm.repository.JobsRepository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -77,5 +78,19 @@ public class JobService {
         } else {
             return false;
         }
+    }
+
+    public List<JobsModel> excludeJobById(List<JobsModel> list, int id) {
+        List<JobsModel> jobList = new ArrayList<>();
+
+        for (JobsModel jobsModel : list) {
+            if (jobsModel.getId() == id) {
+                continue;
+            } else {
+                jobList.add(new JobsModel(jobsModel.getId(), jobsModel.getName(), jobsModel.getStartDate(), jobsModel.getEndDate()));
+            }
+        }
+
+        return jobList;
     }
 }

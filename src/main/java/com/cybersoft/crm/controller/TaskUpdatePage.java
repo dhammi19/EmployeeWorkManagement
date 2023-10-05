@@ -15,10 +15,18 @@ import java.io.IOException;
 @WebServlet(name = "taskUpdatePage", urlPatterns = {"/task-update"})
 public class TaskUpdatePage extends HttpServlet {
     TaskService taskService = new TaskService();
-
     JobService jobService = new JobService();
-
     StatusService statusService = new StatusService();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+
+        String name = (String) session.getAttribute("userName");
+
+        req.setAttribute("userName", name);
+        req.getRequestDispatcher("/task-update.jsp").forward(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

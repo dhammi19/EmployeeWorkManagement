@@ -3,7 +3,10 @@ package com.cybersoft.crm.service;
 import com.cybersoft.crm.model.TasksModel;
 import com.cybersoft.crm.repository.TaskRepository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TaskService {
@@ -66,4 +69,68 @@ public class TaskService {
     public List<TasksModel> getAllTasks() {
         return taskRepository.getAllTasks();
     }
+
+    public boolean isTaskAdded(String taskName, String startDate, String endDate, int userId, int jobId, int statusId) {
+        boolean isAdded = false;
+
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date convertedStartDate = dateFormat.parse(startDate);
+            Date convertedEndDate = dateFormat.parse(endDate);
+
+            int rowsEffected = taskRepository.addTask(taskName, convertedStartDate, convertedEndDate, userId, jobId, statusId);
+
+            if(rowsEffected > 0) {
+                isAdded = true;
+            } else {
+                isAdded = false;
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return isAdded;
+    }
+
+    public boolean isTaskUpdated(String name, int jobId, int userId, String startDate, String endDate, int statusId, int id) {
+        boolean isUpdated = false;
+
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date convertedStartDate = dateFormat.parse(startDate);
+            Date convertedEndDate = dateFormat.parse(endDate);
+
+            int rowsEffected = taskRepository.updateTaskById(name, jobId, userId, convertedStartDate, convertedEndDate, statusId, id);
+
+            if(rowsEffected > 0) {
+                isUpdated = true;
+            } else {
+                isUpdated = false;
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return isUpdated;
+    }
+
+    public boolean isTaskDeleted(int id) {
+        boolean isDeleted = false;
+        int rowsEffected = taskRepository.deleteTaskById(id);
+
+        if (rowsEffected > 0) {
+            isDeleted = true;
+        } else {
+            isDeleted = false;
+        }
+
+        return isDeleted;
+    }
+
 }

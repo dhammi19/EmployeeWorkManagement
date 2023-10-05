@@ -3,6 +3,7 @@ package com.cybersoft.crm.service;
 import com.cybersoft.crm.model.UsersModel;
 import com.cybersoft.crm.repository.UsersRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
@@ -91,5 +92,26 @@ public class UserService {
 
     public double getTaskPercentageByUserAndStatusId(int userId, int statusId) {
         return usersRepository.getTaskPercentageByUserAndStatusId(userId, statusId);
+    }
+
+    public List<UsersModel> excludeUserById(List<UsersModel> list, int id) {
+        List<UsersModel> userList = new ArrayList<>();
+
+        for(UsersModel usersModel : list) {
+            if(usersModel.getId() == id) {
+                continue;
+            } else {
+                userList.add(new UsersModel(
+                        usersModel.getId(),
+                        usersModel.getEmail(),
+                        usersModel.getPassword(),
+                        usersModel.getFullName(),
+                        usersModel.getAvatar(),
+                        usersModel.getRoleId())
+                );
+            }
+        }
+
+        return userList;
     }
 }

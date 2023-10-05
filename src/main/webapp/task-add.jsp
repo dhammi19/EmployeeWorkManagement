@@ -1,3 +1,7 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +70,7 @@
                             <a class="profile-pic dropdown-toggle" data-toggle="dropdown" href="#">
                                 <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
                                     class="img-circle" />
-                                <b class="hidden-xs">Cybersoft</b>
+                                <b class="hidden-xs"><span style="color: white">Xin chào!</span> <span style="color: chartreuse">${userName}</span></b>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="/EmployeeWorkManagement/profile">Thông tin cá nhân</a></li>
@@ -100,7 +104,7 @@
                     </li>
                     <li>
                         <a href="/EmployeeWorkManagement/job" class="waves-effect"><i class="fa fa-table fa-fw"
-                                                                        aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
+                                                                        aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
                         <a href="/EmployeeWorkManagement/task" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -132,55 +136,70 @@
                     <div class="col-md-2 col-12"></div>
                     <div class="col-md-8 col-xs-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" onsubmit="return validateForm();" action="http://localhost:8081/EmployeeWorkManagement/add-task" method="post">
                                 <div class="form-group">
                                     <label class="col-md-12">Dự án</label>
                                     <div class="col-md-12">
-                                        <select class="form-control form-control-line">
-                                            <option>Dự án CRM</option>
-                                            <option>Dự án Elearning</option>
-                                            <option>Dự án Rạp chiếu phim</option>
+                                        <select name="jobId" class="form-control form-control-line">
+                                            <c:forEach items="${jobs. getAllJobs()}" var="job">
+                                                <option value="${job.getId()}">${job.getName()}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Tên công việc</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="Tên công việc"
+                                        <input name="taskName" type="text" placeholder="Tên công việc"
                                             class="form-control form-control-line">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Người thực hiện</label>
                                     <div class="col-md-12">
-                                        <select class="form-control form-control-line">
-                                            <option>Nguyễn Văn Tèo</option>
-                                            <option>Trần Thị Lan</option>
-                                            <option>Cao Ngọc Hiếu</option>
+                                        <select name="userId" class="form-control form-control-line">
+                                            <c:forEach items="${users.getAllUsers()}" var="user">
+                                                <option value="${user.getId()}">${user.getFullName()}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày bắt đầu</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="dd/MM/yyyy"
+                                        <input name="startDate" type="text" placeholder="yy-MM-dd"
                                             class="form-control form-control-line"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Ngày kết thúc</label>
                                     <div class="col-md-12">
-                                        <input type="text" placeholder="dd/MM/yyyy"
+                                        <input name="endDate" type="text" placeholder="yy-MM-dd"
                                             class="form-control form-control-line"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success">Lưu lại</button>
-                                        <a href="task.jsp" class="btn btn-primary">Quay lại</a>
+                                        <button type="submit" class="btn btn-success">Thêm</button>
+                                        <a href="/EmployeeWorkManagement/task" class="btn btn-primary">Quay lại</a>
                                     </div>
                                 </div>
                             </form>
+                            <script>
+                                function validateForm() {
+                                    var startDateInput = document.querySelector('input[name="startDate"]');
+                                    var endDateInput = document.querySelector('input[name="endDate"]');
+
+                                    var datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+                                    if (!datePattern.test(startDateInput.value) || !datePattern.test(endDateInput.value)) {
+                                        alert("Vui lòng nhập ngày theo định dạng yyyy-MM-dd.");
+                                        return false;
+                                    }
+
+                                    return true;
+                                }
+                            </script>
                         </div>
                     </div>
                     <div class="col-md-2 col-12"></div>

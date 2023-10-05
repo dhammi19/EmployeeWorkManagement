@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TaskRepository {
@@ -321,5 +322,84 @@ public class TaskRepository {
         }
 
         return list;
+    }
+
+    public int addTask(String taskName, Date startDate, Date endDate, int userId, int jobId, int statusId) {
+        int rowsEffected = 0;
+
+        try {
+            String query = "insert into tasks(name, start_date, end_date, user_id, job_id, status_id) values(?, ?, ?, ?, ?, ?)";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, taskName);
+            preparedStatement.setDate(2, new java.sql.Date(startDate.getTime()));
+            preparedStatement.setDate(3, new java.sql.Date(endDate.getTime()));
+            preparedStatement.setInt(4, userId);
+            preparedStatement.setInt(5, jobId);
+            preparedStatement.setInt(6, statusId);
+
+            rowsEffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at addTask(): "+e.getMessage());
+        }
+
+        return rowsEffected;
+    }
+
+    public int updateTaskById(String name, int jobId, int userId, Date startDate, Date endDate, int statusId, int id) {
+        int rowsEffected = 0;
+        try {
+            String query = "update tasks " +
+                    "set name = ?, " +
+                    "job_id = ?, " +
+                    "user_id = ?, " +
+                    "start_date = ?, " +
+                    "end_date = ?, " +
+                    "status_id = ? " +
+                    "where id = ?";
+
+            connection = MysqlConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, jobId);
+            preparedStatement.setInt(3, userId);
+            preparedStatement.setDate(4, new java.sql.Date(startDate.getTime()));
+            preparedStatement.setDate(5, new java.sql.Date(endDate.getTime()));
+            preparedStatement.setInt(6, statusId);
+            preparedStatement.setInt(7, id);
+
+            rowsEffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at updateTaskById(): "+e.getMessage());
+        }
+
+        return rowsEffected;
+    }
+
+    public int deleteTaskById(int id) {
+        int rowsEffected = 0;
+
+        try {
+            String query = "delete from tasks where id = ?";
+
+            connection = MysqlConnection.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            rowsEffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error at deleteTaskById(): "+e.getMessage());
+        }
+
+        return rowsEffected;
     }
 }

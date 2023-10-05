@@ -5,28 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a7bd32-bb0a-43d1-83ae-8793da390753" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/JobDetailPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/JobDetailPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/TaskUpdatePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/controller/TaskUpdatePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/JobService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit-job.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit-job.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit-role.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit-role.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit-user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork-edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork-edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/groupwork.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/groupwork.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/role-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/role-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/role-table.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cybersoft/crm/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/task-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-add.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/task-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task-update.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-table.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-table.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/JobDetailPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/JobDetailPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/task.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/task.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/TaskUpdatePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/controller/TaskUpdatePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/repository/TaskRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/repository/TaskRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/service/TaskService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cybersoft/crm/service/TaskService.class" afterDir="false" />
     </list>
@@ -145,7 +134,11 @@
       <workItem from="1696041584878" duration="7646000" />
       <workItem from="1696077557049" duration="11063000" />
       <workItem from="1696169517387" duration="8903000" />
-      <workItem from="1696256352884" duration="2770000" />
+      <workItem from="1696256352884" duration="7869000" />
+      <workItem from="1696305784724" duration="1065000" />
+      <workItem from="1696321637796" duration="5862000" />
+      <workItem from="1696431201941" duration="2107000" />
+      <workItem from="1696476204722" duration="6863000" />
     </task>
     <servers />
   </component>
